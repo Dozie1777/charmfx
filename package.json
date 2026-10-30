@@ -1,0 +1,74 @@
+{
+  "name": "@dozie_melvin96/charmfx",
+  "version": "0.1.0",
+  "description": "What you see is what you charge: prices in a shopper's currency with clean .99 endings, charged exactly as shown.",
+  "keywords": [
+    "currency",
+    "multi-currency",
+    "presentment",
+    "charm-pricing",
+    "price-rounding",
+    "exchange-rates",
+    "checkout",
+    "ecommerce",
+    "stripe",
+    "minor-units"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./exchangerate-api": {
+      "import": {
+        "types": "./dist/exchangerate-api.d.ts",
+        "default": "./dist/exchangerate-api.js"
+      },
+      "require": {
+        "types": "./dist/exchangerate-api.d.cts",
+        "default": "./dist/exchangerate-api.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "typesVersions": {
+    "*": {
+      "exchangerate-api": [
+        "./dist/exchangerate-api.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "devDependencies": {
+    "tsup": "^9.0.0",
+    "typescript": "^6.0.3",
+    "vitest": "^5.0.5"
+  }
+}
